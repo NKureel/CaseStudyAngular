@@ -2,7 +2,7 @@
     position: absolute;
     left: 0px;
     right: 0px;
-    bottom: 50px;
+    /*bottom: 50px;*/
     padding: 20px;
     z-index: 999;
 }
@@ -15,7 +15,7 @@
 .tabing {
     float: left;
     width: 100%;
-    background: rgba(0, 130, 185, .8);
+   /* background: rgba(0, 130, 185, .8);*/
     padding: 0 10px 10px 10px;
     color: #fff;
 }
