@@ -1,51 +1,81 @@
-<div class="wrapper bg-white">
-    <form action="#">
-        <div class="form-group border-bottom d-flex align-items-center justify-content-between flex-wrap">
-            <label class="option my-sm-0 my-2">
-                <input type="radio" name="radio" checked>Round Trip
-                <span class="checkmark"></span>
-            </label>
-            <label class="option my-sm-0 my-2">
-                <input type="radio" name="radio">One Way
-                <span class="checkmark"></span>
-            </label>
-            <div class="d-flex align-items-center my-sm-0 my-2">
-                <a href="#" class="text-decoration-none">
-                    Multi-city/Stopovers <span class="fas fa-angle-right ps-2 text-primary"></span>
-                </a>
-            </div>
-        </div>
-        <div class="form-group d-sm-flex margin">
-            <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                <input type="text" required placeholder="From" class="form-control">
-                <div class="label" id="from"></div>
-                <span class="fas fa-dot-circle text-muted"></span>
-            </div>
-            <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                <input type="text" required placeholder="To" class="form-control">
-                <div class="label" id="to"></div>
-                <span class="fas fa-map-marker text-muted"></span>
-            </div>
-        </div>
-        <div class="form-group d-sm-flex margin">
-            <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative">
-                <input type="date" required placeholder="Depart Date" class="form-control">
-                <div class="label" id="depart"></div>
-            </div>
-            <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                <input type="date" required placeholder="Return Date" class="form-control">
-                <div class="label" id="return"></div>
-            </div>
-        </div>
-        <div class="form-group border-bottom d-flex align-items-center position-relative">
-            <input type="text" required placeholder="Traveller(s)" class="form-control">
-            <div class="label" id="psngr"></div>
-            <span class="fas fa-users text-muted"></span>
-        </div>
-        <div class="form-group my-3">
-            <div class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3">Search Flights
-            </div>
-        </div>
-    </form>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-</div>
+
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="flight-engine">
+               <div class="container">
+                  <div class="tabing">
+                     <ul>
+                        <li><a class="active" href="#1"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a>
+                        </li>
+                         <li><a  href="#2"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a>
+                        </li>
+                     </ul>
+                     <div class="tab-content">
+                        <div id="1" class="tab1 active">
+                           <div class="flight-tab row">
+                              <div class="persent-one">
+                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
+                              </div>
+                              <div class="persent-one">
+                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
+                              </div>
+                              <div class="persent-one less-per">
+                                 <i class="fa fa-calendar" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
+                              </div>
+                              <div class="persent-one less-per">
+                                 <i class="fa fa-calendar" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
+                              </div>
+                              <div class="persent-one">
+                                 <i class="fa fa-user" aria-hidden="true"></i>
+                                 <div class="textboxstyle" id="passenger">01 Passenger</div>
+                              </div>
+                              <div class="persent-one less-btn">
+                                 <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
+                              </div>
+                           </div>
+                           <!-- flight tab -->
+                        </div>
+                        <!-- tab 1 -->
+                         <div id="2" class="tab1">
+                           <div class="flight-tab row">
+                              <div class="persent-one">
+                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
+                              </div>
+                              <div class="persent-one">
+                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
+                              </div>
+                              <div class="persent-one less-per">
+                                 <i class="fa fa-calendar" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
+                              </div>
+                              <div class="persent-one less-per">
+                                 <i class="fa fa-calendar" aria-hidden="true"></i>
+                                 <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
+                              </div>
+                              <div class="persent-one">
+                                 <i class="fa fa-user" aria-hidden="true"></i>
+                                 <div class="textboxstyle" id="passenger">01 Passenger</div>
+                              </div>
+                              <div class="persent-one less-btn">
+                                 <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
+                              </div>
+                           </div>
+                           <!-- flight tab -->
+                        </div>
+                        <!-- tab 1 -->
+                     </div>
+                     </div>
+                     <!-- tab content -->
+                  </div>
+                  <!-- tabbing -->
+               </div>
