@@ -20,6 +20,8 @@ import { AirlineService } from './services/airline.services';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { BookingService } from './services/booking.services';
 import { InventoryService } from './services/inventory.services';
+import { BookingComponent } from './booking/booking.component';
+import { HistoryComponent } from './booking/history/history.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InventoryService } from './services/inventory.services';
     AddAirlinesComponent,
     AddInventoryComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    BookingComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
