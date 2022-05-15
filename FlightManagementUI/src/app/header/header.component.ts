@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.services';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 imageUrl='../../assets/Images/plane.png';
-  constructor() { }
+ admin:any='false';
+constructor(private _authService:AuthService) { }
 
+LogOut()
+{
+  return this._authService.logoutUser();
+}
+isAdmin()
+{  
+  this.admin=this._authService.adminDetail(); 
+   if(this.admin==='true' && this.admin!=null)
+   return true;
+   else
+   return false;
+}
+LoggedIn(input:boolean)
+{
+  if(input)
+  {          
+  return this._authService.loggedIn();
+  }
+  else
+  return !this._authService.loggedIn();
+}
   ngOnInit(): void {
   }
 
