@@ -1,3 +1,5 @@
+import { PersonData } from "./personModel";
+
 export class BookingData
 {
    name:string='';
@@ -7,5 +9,6 @@ export class BookingData
     meal:string='';
     seatNo:string='';
     seatClass:string='';
-    flightNumber:string='';    
+    flightNumber:string='';  
+    userdetail:Array<PersonData>=new Array<PersonData>();  
 }

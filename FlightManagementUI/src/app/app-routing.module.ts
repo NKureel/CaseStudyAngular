@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAirlinesComponent } from './airline/add-airlines/add-airlines.component';
+import { AirlineComponent } from './airline/airline.component';
 import { HistoryComponent } from './booking/history/history.component';
 import { HomeComponent } from './home/home.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
@@ -34,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'airline',
-    component: AddAirlinesComponent
+    component: AirlineComponent
   },
   {
     path: 'inventory',

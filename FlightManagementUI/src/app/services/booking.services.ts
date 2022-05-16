@@ -1,25 +1,32 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
+import { PersonData } from '../models/personModel';
+
 
 @Injectable()
 export class BookingService
 {
-    private _booking='';
-    private _bookFlightUrl='';
-    private _recordByEmailIdURL='';
-    private _recordByPnrURL='';
+    private _booking='http://localhost:30414/api/v1.0/flight/booking/GetAllBooking';
+    private _bookFlightUrl='http://localhost:30414"/api/v1.0/flight/booking/';
+    private _recordByEmailIdURL='/api/v1.0/flight/booking/history/';
+    private _recordByPnrURL='/api/v1.0/flight/booking/ticket/';
+    private _cancelTicket='/api/v1.0/flight/booking/cancel/'
     constructor(private http:HttpClient,private router:Router) {
                
     }
     
+    cancelTicket(PNR:any)
+    {
+        return this.http.delete<any>(this._cancelTicket+PNR)
+    }
     getTicketByPNR(PNR:any)
     {
-        return this.http.get<any>(this._recordByPnrURL,PNR);
+        return this.http.get<any>(this._recordByPnrURL+PNR);
     }
     getAllBookingByEmailId(emailId:any)
     {
-        return this.http.get<any>(this._recordByEmailIdURL,emailId);
+        return this.http.get<any>(this._recordByEmailIdURL+emailId);
     }
     getAllBooking()
     {
@@ -27,8 +34,19 @@ export class BookingService
     }
 
     bookFlightForUser(user:any)
-    {
-        return this.http.post<any>(this._bookFlightUrl,user);
+    {        
+        var data={            
+            name: user.name,
+            emailId: user.emailId,
+            noOfSeatBook: user.noOfSeatBook,            
+            userDetail: user.userdetail,
+            meal: user.meal,
+            seatNo: user.seatNo,
+            seatClass: user.seatClass,
+            flightNumber: user.flightNumber,            
+          }
+        
+        return this.http.post<any>(this._bookFlightUrl+user.flightNumber,data);
     }
     
 }

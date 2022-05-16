@@ -16,8 +16,9 @@ export class AddAirlinesComponent  {
 
   registerAirline()
   {
+    debugger;
     this._auth.registerAirline(this.airlineData).subscribe(res => {
-      localStorage.setItem('token', res.token)    
+      //localStorage.setItem('token', res.token)    
       alert("Register Successfully")  ;
     },
       err => console.log(err));
@@ -25,7 +26,7 @@ export class AddAirlinesComponent  {
   
   deleteAirline(index:any)
   {
-    this._auth.blockAirline(index).subscribe(res => {
+    this._auth.blockAirline(index,this.airlineData.airlineNo).subscribe(res => {
      // localStorage.setItem('token', res.)    
      
       alert("Deleted Successfully")  ;

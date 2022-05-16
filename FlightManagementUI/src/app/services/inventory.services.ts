@@ -26,7 +26,23 @@ export class InventoryService
 
     addInventory(inventory:any)
     {
-        return this.http.post<any>(this._addInventoryUrl,inventory);
+        var data={            
+                flightNumber: inventory.flightNumber,                
+                airlineNo: inventory.airlineNo,
+                fromPlace: inventory.FromPlace,
+                toPlace: inventory.toPlace,
+                startDateTime:inventory.startDateTime,
+                endDateTime: inventory.endDateTime,
+                scheduleDays: inventory.scheduleDays,
+                instrumentUsed: inventory.instrumentUsed,
+                businessClassSeat:inventory.businessClassSeat,
+                nonBusinessClassSeat: inventory.nonBusinessClassSeat,
+                ticketCost: inventory.ticketCost,
+                noOfRows: inventory.noOfRows,
+                meal: inventory.meal
+              
+        }
+        return this.http.post<any>(this._addInventoryUrl,data);
     }
     
 }
