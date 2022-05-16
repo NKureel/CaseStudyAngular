@@ -13,8 +13,11 @@ export class AuthService
 
     loginUser(user:any)
     {
-        debugger;
-        return this.http.post<any>(this._loginUrl,user);
+       var data={
+            userName:user.userName,
+            password:user.password
+        }
+        return this.http.post<any>(this._loginUrl,data);
     }
 
     registerUser(user:any)

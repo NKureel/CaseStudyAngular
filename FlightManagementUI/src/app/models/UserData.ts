@@ -8,9 +8,9 @@ export class UserData{
         var _builder=new FormBuilder();
         this.formloginGroup=_builder.group({});        
         var validationcollection=[];        
-        validationcollection.push(Validators.email);
+        validationcollection.push(Validators.required);
         validationcollection.push(Validators.required);
        this.formloginGroup.addControl("passwordControl",new FormControl('',Validators.required));
-       this.formloginGroup.addControl('userNameControl',new FormControl('',Validators.email));
+       this.formloginGroup.addControl('userNameControl',new FormControl('',Validators.required));
     }
 }

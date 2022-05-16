@@ -22,9 +22,10 @@ export class LoginComponent  {
     this._router.navigate(['/register']);
   }
   loginUser() {    
+    debugger;
     this._auth.loginUser(this.loginUserData).subscribe(res => {
       localStorage.setItem('token', res.token)      
-      if(this.values==='naina.kureel@gmail.com')
+      if(this.loginUserData.userName==='admin')
       {        
       localStorage.setItem('isAdmin', 'true');
       this._router.navigate(['/airline'])     
@@ -35,7 +36,7 @@ export class LoginComponent  {
       this._router.navigate(['/home'])
       }
     },
-      err => console.log(err));
+      err => alert(err.error.message));
   }
   hasError(typeofvalidator:string,controlname:string):boolean{
     return this.loginUserData.formloginGroup.controls[controlname].hasError(typeofvalidator);

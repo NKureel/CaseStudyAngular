@@ -5,9 +5,9 @@ import {Router} from '@angular/router';
 @Injectable()
 export class InventoryService
 {
-    private _inventoryURL='';
-    private _addInventoryUrl='';
-    private _searchFlightURL='';
+    private _inventoryURL='http://localhost:30414/api/v1.0/flight/airline/inventory';
+    private _addInventoryUrl='http://localhost:30414/api/v1.0/flight/airline/inventory/add';
+    private _searchFlightURL='http://localhost:30414/api/v1.0/flight/search';
     constructor(private http:HttpClient,private router:Router) {
                
     }

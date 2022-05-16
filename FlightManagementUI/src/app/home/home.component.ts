@@ -1,27 +1,47 @@
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery'; 
-declare  var jQuery:  any;
+import { InventoryData } from '../models/inventoryModel';
+import { InventoryService } from '../services/inventory.services';
+
 @Component({
-  selector:'app-home',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit { 
-  constructor() { }
-  //rowData = [];
- 
+export class HomeComponent implements OnInit {
+  inventoryData: InventoryData = new InventoryData();
+  inventoryModellist: Array<InventoryData> = new Array<InventoryData>();
+  errorRes:string='';
+  IsError:boolean=false;
+  IsSearch:boolean=false;
+  constructor(private _service: InventoryService) { }
+  //rowData = [];  
   ngOnInit(): void {
-    
-      $(document).ready(function () {
-       (<any> $('#dtDynamicVerticalScrollExample')).DataTable({
-          "scrollY": "50vh",
-          "scrollCollapse": true,
-        });
-        $('.dataTables_length').addClass('bs-select');
+
+    $(document).ready(function () {
+      (<any>$('#dtDynamicVerticalScrollExample')).DataTable({
+        "scrollY": "50vh",
+        "scrollCollapse": true,
       });
+      $('.dataTables_length').addClass('bs-select');
+    });
+  }
+  SearchInventoyr() {
+    this.IsSearch=true;
+    this._service.getFlightByPlaces(this.inventoryData.FromPlace,this.inventoryData.toPlace).subscribe(res=>this.Success(res),err=>console.log(err))
+  }
+
+  GetAllInventory(){
+    this._service.getAllInventory().subscribe(res=>this.Success(res),err=>this.Error(err));   
+  }
+  Error(err:any)
+  {
+    this.IsError=true;
+    this.errorRes=err.error.message;
     
-    /*fetch('https://www.ag-grid.com/example-assets/row-data.json')
-    .then(result => result.json())
-    .then(rowData => this.rowData = rowData);*/      
-  }  
+  }
+  Success(res:any)
+  {
+    this.inventoryModellist=res;
+  }
 }
