@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },{
+    path: 'addairline',
+    component: AddAirlinesComponent
+  },
+  {
     path: 'airline',
     component: AddAirlinesComponent
   },
