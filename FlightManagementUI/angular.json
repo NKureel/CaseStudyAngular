@@ -32,7 +32,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["../FlightManagementUI/node_modules/jquery/dist/jquery.min.js"]
+            "scripts": ["../FlightManagementUI/node_modules/Jquery/dist/jquery.min.js","../FlightManagementUI/node_modules/Jquery/dist/jquery.js"]
           },
           "configurations": {
             "production": {

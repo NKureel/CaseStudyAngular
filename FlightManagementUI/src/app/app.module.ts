@@ -22,16 +22,19 @@ import { BookingService } from './services/booking.services';
 import { InventoryService } from './services/inventory.services';
 import { BookingComponent } from './booking/booking.component';
 import { HistoryComponent } from './booking/history/history.component';
-import { AgGridModule } from 'ag-grid-angular';
+
+
+
+
 
 @NgModule({
-  declarations: [
+  declarations: [    
     AppComponent,    
     HeaderComponent,
     FooterComponent,
     InventoryComponent,
     LoginComponent,
-    AirlineComponent,
+    AirlineComponent,     
     AddAirlinesComponent,
     AddInventoryComponent,
     HomeComponent,
@@ -40,12 +43,12 @@ import { AgGridModule } from 'ag-grid-angular';
     HistoryComponent
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     FormsModule,    
-    ReactiveFormsModule,
-    HttpClientModule,
-    AgGridModule.withComponents(null)
+    ReactiveFormsModule,    
+    HttpClientModule
   ],
   providers: [AirlineService,BookingService,InventoryService,AuthService,AuthGaurd,{
     provide:HTTP_INTERCEPTORS,
