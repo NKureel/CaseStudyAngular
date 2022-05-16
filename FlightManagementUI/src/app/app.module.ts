@@ -48,7 +48,7 @@ import { HistoryComponent } from './booking/history/history.component';
     AppRoutingModule,
     FormsModule,    
     ReactiveFormsModule,    
-    HttpClientModule
+    HttpClientModule,    
   ],
   providers: [AirlineService,BookingService,InventoryService,AuthService,AuthGaurd,{
     provide:HTTP_INTERCEPTORS,

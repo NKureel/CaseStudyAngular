@@ -34,7 +34,9 @@
             </div>
          </div>
       </div>
-  
+      <div class="alert alert-success" role="alert" *ngIf="IsAlert">
+         {{alerts}}
+       </div>
  
    
       <div class="row"  *ngIf="IsSearch">

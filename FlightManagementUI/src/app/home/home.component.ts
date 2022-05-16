@@ -26,7 +26,17 @@ export class HomeComponent implements OnInit {
       $('.dataTables_length').addClass('bs-select');
     });
   }
+  IsAlert:Boolean=false;
+  alerts:string='';
   SearchInventoyr() {
+     
+    
+    if(this.inventoryData.fromPlace==''|| this.inventoryData.toPlace==''||this.inventoryData.startDateTime==''||this.inventoryData.endDateTime=='')
+    {
+      this.alerts="Please fill the fields";      
+      this.IsAlert=true;
+      return;
+    }
     this.IsSearch=true;
     this._service.getFlightByPlaces(this.inventoryData.fromPlace,this.inventoryData.toPlace).subscribe(res=>this.Success(res),err=>console.log(err))
   }
