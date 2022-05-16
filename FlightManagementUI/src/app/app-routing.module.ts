@@ -5,6 +5,7 @@ import { AirlineComponent } from './airline/airline.component';
 import { HistoryComponent } from './booking/history/history.component';
 import { HomeComponent } from './home/home.component';
 import { AddInventoryComponent } from './inventory/add-inventory/add-inventory.component';
+import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -38,7 +39,11 @@ const routes: Routes = [
     component: AirlineComponent
   },
   {
-    path: 'inventory',
+    path:'inventory',
+    component:InventoryComponent
+  },
+  {
+    path: 'addinventory',
     component: AddInventoryComponent
   }
 ];

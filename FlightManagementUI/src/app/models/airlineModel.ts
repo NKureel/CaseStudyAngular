@@ -2,6 +2,6 @@ export class AirlineData
 {
     airlineNo:string='';
     uploadLogo:string='';
-    contactNo:string='';
+    contactNumber:string='';
     contactAddress:string='';
 }

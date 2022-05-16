@@ -1,7 +1,7 @@
 export class InventoryData {
     flightNumber: string = '';
     airlineNo: string = '';
-    FromPlace: string = '';
+    fromPlace: string = '';
     toPlace: string = '';
     startDateTime: string = '';
     endDateTime: string = '';

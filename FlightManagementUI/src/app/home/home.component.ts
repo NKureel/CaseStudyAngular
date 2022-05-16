@@ -28,9 +28,13 @@ export class HomeComponent implements OnInit {
   }
   SearchInventoyr() {
     this.IsSearch=true;
-    this._service.getFlightByPlaces(this.inventoryData.FromPlace,this.inventoryData.toPlace).subscribe(res=>this.Success(res),err=>console.log(err))
+    this._service.getFlightByPlaces(this.inventoryData.fromPlace,this.inventoryData.toPlace).subscribe(res=>this.Success(res),err=>console.log(err))
   }
 
+  bookFlight(index:any,detail:any)
+  {
+    
+  }
   GetAllInventory(){
     this._service.getAllInventory().subscribe(res=>this.Success(res),err=>this.Error(err));   
   }

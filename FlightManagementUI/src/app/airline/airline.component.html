@@ -5,12 +5,7 @@
             <h2  style="background-color: coral;">Airline</h2>
             <p class="text-h3"></p>
         </div>
-        </div>
-        <!--<div class="row py-2">
-            <div class="col-mb-12" style="padding-top: 30px!important;padding-left: 0.9rem;">
-            <h3 class="align-items-center">Airlines</h3>
-        </div>
-        </div>-->
+        </div>       
     </div>
     <div class="container  table-bordered-1" >
         <div class="row">
@@ -24,25 +19,27 @@
                 cellspacing="0" width="100%">
                 <thead class="bg-info">
                     <tr>
-                        <th class="th-sm">Airline</th>
-                        <th class="th-sm">Address</th>
-                        <th class="th-sm">Number</th>
-                        <th class="th-sm">Action</th>
+                        <th class="th-sm"><h4>Airline</h4></th>
+                        <th class="th-sm"><h4>UploadLogo</h4></th>
+                        <th class="th-sm"><h4>Address</h4></th>
+                        <th class="th-sm"><h4>Number</h4></th>
+                        <th class="th-sm"><h4>Action</h4></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngIf="IsError">
-                        <td colspan="3">{{errorRes}}</td>
+                        <td colspan="5"><h5>{{errorRes}}</h5></td>
                     </tr>
                     <tr *ngFor="let detail of airlineModellist;index as i">
-                        <td>{{detail.airlineNo}}</td>
-                        <td>{{detail.contactAddress}}</td>
-                        <td>{{detail.contactNo}}</td>
+                        <td><h5>{{detail.airlineNo}}</h5></td>
+                        <td><h5>{{detail.uploadLogo}}</h5></td>
+                        <td><h5>{{detail.contactAddress}}</h5></td>
+                        <td><h5>{{detail.contactNumber}}</h5></td>
                         <td>
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-success btn-lg align-items-center"
-                                    style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="deleteAirline(i)">Block</button>
-                            </div>
+                            
+                                <button type="submit"   style="background-color:forestgreen; padding: auto;width: 90%;font-weight: bold;"
+                                     (click)="deleteAirline(i,detail)">Block</button>
+                            
                         </td>
                     </tr>
                 </tbody>

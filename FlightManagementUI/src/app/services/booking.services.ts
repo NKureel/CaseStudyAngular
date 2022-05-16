@@ -8,10 +8,10 @@ import { PersonData } from '../models/personModel';
 export class BookingService
 {
     private _booking='http://localhost:30414/api/v1.0/flight/booking/GetAllBooking';
-    private _bookFlightUrl='http://localhost:30414"/api/v1.0/flight/booking/';
-    private _recordByEmailIdURL='/api/v1.0/flight/booking/history/';
-    private _recordByPnrURL='/api/v1.0/flight/booking/ticket/';
-    private _cancelTicket='/api/v1.0/flight/booking/cancel/'
+    private _bookFlightUrl='http://localhost:30414/api/v1.0/flight/booking/';
+    private _recordByEmailIdURL='http://localhost:30414/api/v1.0/flight/booking/history/';
+    private _recordByPnrURL='http://localhost:30414/api/v1.0/flight/booking/ticket/';
+    private _cancelTicket='http://localhost:30414/api/v1.0/flight/booking/cancel/'
     constructor(private http:HttpClient,private router:Router) {
                
     }

@@ -16,28 +16,26 @@ export class AirlineComponent implements OnInit {
   errorRes:string='';
   constructor(private _auth:AirlineService,private _route:Router) { }
 
-  ngOnInit(): void {   
-      this._auth.getAllAirline().subscribe(res => {
-       this.airlineModellist=res
+  ngOnInit(): void {       
+      this._auth.getAllAirline().subscribe(res => {        
+       this.airlineModellist=res    
+          
       },
-        err =>{ this.IsError=false,this.errorRes=err.error.message});      
+        err =>{ this.IsError=true,this.errorRes=err.error.message});      
   }
-
-  deleteAirline(index:any)
+  
+  deleteAirline(index:any,airline:any)
   {
-    this._auth.blockAirline(index,this.airlineData.airlineNo).subscribe(res=>{
+    this._auth.blockAirline(index,airline.airlineNo).subscribe(res=>{
       alert("Blocked Successfully"),
-      this._route.navigate(['/airline']);
+      this._route.navigate(["\airline"]).then(()=>{window.location.reload()})  
     },err=>alert(err.error.message));
   }
-
+  
   addAirline()
   {
     this._route.navigate(["\addairline"]);
-   /* this._auth.registerAirline(this.airlineData).subscribe(res=>{
-      alert("Added Successfully"),
-      this._route.navigate(["\airline"]);
-    },err=>alert(err.error.message));*/
+  
   }
 }
 

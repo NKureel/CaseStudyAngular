@@ -10,13 +10,17 @@ import { InventoryService } from '../services/inventory.services';
 export class InventoryComponent implements OnInit {
 
   inventoryData:InventoryData=new InventoryData();
-  events=[]
+  inventoryModellist:Array<InventoryData>=new Array<InventoryData>();
+  IsError:boolean=false;  
+  errorRes:string='';
   constructor(private _auth:InventoryService) { }
 
   ngOnInit(): void {   
       this._auth.getAllInventory().subscribe(res => {
-       this.events=res   
+       this.inventoryModellist=res   
       },
         err => console.log(err));      
   }
+  addInventory()
+  {}
 }

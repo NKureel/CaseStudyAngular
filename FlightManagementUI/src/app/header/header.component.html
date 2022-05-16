@@ -6,23 +6,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">   
       <ul class="navbar-nav mr-auto">
-        <!--<li class="nav-item active">
-          <a class="nav-link" href="#">Flight</a>
-        </li>-->
-        <li class="nav-item" >
-          <a class="nav-link" *ngIf="true && !isAdmin()" routerLink="/home">Book Flight</a>
-        </li>
-        <li class="nav-item" >
-          <a class="nav-link" *ngIf="true && !isAdmin()" href="#">Manage Booking</a>
-        </li>
         
-        <li class="nav-item" >
+        <li class="nav-item active" >
+          <a class="nav-link" *ngIf="true && !isAdmin()" routerLink="/home" >Book Flight</a>
+        </li>
+       <!-- <li class="nav-item" >
+          <a class="nav-link" *ngIf="true && !isAdmin()" href="#">Manage Booking</a>
+        </li>-->
+        
+        <li class="nav-item active" >
           <a class="nav-link" *ngIf="true && !isAdmin()"href="/history">Booking History</a>
         </li>
-        <li class="nav-item" >
-          <a class="nav-link" *ngIf="isAdmin()" routerLink="/addairline" >Manage Airlines</a>
+        <li class="nav-item active" >
+          <a class="nav-link" *ngIf="isAdmin()" routerLink="/airline" >Manage Airlines</a>
         </li>
-        <li class="nav-item" >
+        <li class="nav-item active" >
           <a class="nav-link" *ngIf="isAdmin()" routerLink="/inventory" >Manage Schedules</a>
         </li>
       </ul>
@@ -33,7 +31,7 @@
         <li class="nav-item active">
           <a class="nav-link" *ngIf="LoggedIn(false)" routerLink="/register">Sign up</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" style="cursor:pointer" *ngIf="LoggedIn(true)" (click)="LogOut()">Logout</a>
         </li>
       </ul>
