@@ -5,8 +5,8 @@ import {Router} from '@angular/router';
 @Injectable()
 export class AuthService
 {
-    private _loginUrl='https://localhost:44355/api/Users/login';
-    private _registerUrl='';
+    private _loginUrl='http://localhost:30414/api/v1.0/flight/authentication/login';
+    private _registerUrl='http://localhost:30414/api/v1.0/flight/authentication/register';
     constructor(private http:HttpClient,private router:Router) {
                
     }

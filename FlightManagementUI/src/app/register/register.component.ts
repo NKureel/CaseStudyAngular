@@ -13,13 +13,29 @@ export class RegisterComponent {
   constructor(private _auth:AuthService,private _router:Router) { }
 
   registerUser() {
-    this._auth.registerUser(this.registerUserData).subscribe(res => {
-      localStorage.setItem('token', res.token)  
-      alert("Register Successfully")               
+    debugger;
+    var data={
+      userName:this.registerUserData.userName,
+      email:this.registerUserData.email,
+      password:this.registerUserData.password
+    }
+    var result;
+    this._auth.registerUser(data).subscribe(res => {
+      //localStorage.setItem('token', res.token)  
+      result=alert("Register Successfully")                     
     },
-      err => console.log(err));
+      err => alert(err.error.message));
+      var logindata={
+        userName:this.registerUserData.userName,
+        password:this.registerUserData.password
+      }
+      this._auth.loginUser(logindata).subscribe(res => {
+        localStorage.setItem('token', res.token)                    
+      this._router.navigate(['\home'])},err=>alert(err.error.message));      
   }
   
+
+
   hasError(typeofvalidator:string,controlname:string):boolean{
     return this.registerUserData.formRegisterGroup.controls[controlname].hasError(typeofvalidator);
   }
