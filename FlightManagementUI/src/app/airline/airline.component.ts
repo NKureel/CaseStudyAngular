@@ -10,14 +10,16 @@ import { AirlineService } from '../services/airline.services';
 export class AirlineComponent implements OnInit {
 
   airlineData:AirlineData=new AirlineData();
-  events=[]
+  airlineModellist:Array<AirlineData>=new Array<AirlineData>();
+  IsError:boolean=false;
+  errorRes:string='';
   constructor(private _auth:AirlineService) { }
 
   ngOnInit(): void {   
       this._auth.getAllAirline().subscribe(res => {
-       this.events=res   
+       this.airlineModellist=res
       },
-        err => console.log(err));      
+        err =>{ this.IsError=false,this.errorRes=err.error.message});      
   }
 }
 
