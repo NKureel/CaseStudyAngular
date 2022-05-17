@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InventoryData } from '../models/inventoryModel';
 import { InventoryService } from '../services/inventory.services';
 
@@ -13,7 +14,7 @@ export class InventoryComponent implements OnInit {
   inventoryModellist:Array<InventoryData>=new Array<InventoryData>();
   IsError:boolean=false;  
   errorRes:string='';
-  constructor(private _auth:InventoryService) { }
+  constructor(private _auth:InventoryService,private _router:Router) { }
 
   ngOnInit(): void {   
       this._auth.getAllInventory().subscribe(res => {
@@ -22,5 +23,7 @@ export class InventoryComponent implements OnInit {
         err => console.log(err));      
   }
   addInventory()
-  {}
+  {
+    this._router.navigate(["\addinventory"]);
+  }
 }

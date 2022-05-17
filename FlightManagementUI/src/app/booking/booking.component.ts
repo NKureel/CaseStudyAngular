@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class BookingComponent implements OnInit {
 
   constructor() { }
-
+  pushRow:Array<number>=new Array<number>();
   ngOnInit(): void {
   }
-
+  AddRow()
+  {
+    this.pushRow.push(1);
+  }
 }

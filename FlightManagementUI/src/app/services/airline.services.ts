@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 export class AirlineService
 {
     private _airlineUrl='http://localhost:30414/api/v1.0/flight/airline';
-    private _registerAirlineUrl='http://localhost:30414/api/v1.0/flight/airline/register';
+    private _registerAirlineUrl='http://localhost:30414/api/v1.0/flight/airline/register';    
     private _blockAirlineURL='http://localhost:30414/api/v1.0/flight/airline/block/';
     constructor(private http:HttpClient,private router:Router) {
                
@@ -17,7 +17,8 @@ export class AirlineService
     }
 
     registerAirline(airlinedetail:any)
-    {        
+    {   
+        debugger;     
        var  data={
         airlineNo: airlinedetail.airlineNo,
         uploadLogo:airlinedetail.uploadLogo,
