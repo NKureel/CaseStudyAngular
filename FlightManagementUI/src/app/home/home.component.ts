@@ -1,9 +1,9 @@
-import { EmitterVisitorContext } from '@angular/compiler';
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { BookingComponent } from '../booking/booking.component';
+
 import { InventoryData } from '../models/inventoryModel';
 import { InventoryService } from '../services/inventory.services';
+import { SharedData } from '../shared/shared.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   errorRes:string='';
   IsError:boolean=false;
   IsSearch:boolean=false;
-  constructor(private _service: InventoryService,private _router:Router) {
+
+  constructor(private _service: InventoryService,private _router:Router,private _data:SharedData) {
     
     //this._service.getAllInventory().subscribe(res=>this.Success(this.inventoryModellist=res),err=>console.log(err))
    }
@@ -34,8 +35,7 @@ export class HomeComponent implements OnInit {
       alert("Please fill the dettails");
       return;
     }
-    
-  //console.log(this.inventoryModellist.filter(s=>s.toPlace==this.inventoryData.toPlace && s.fromPlace==this.inventoryData.fromPlace))
+      
     this._service.getFlightByPlaces(this.inventoryData.fromPlace,this.inventoryData.toPlace).subscribe(res=>{
       this.IsSearch=true;
       this.Success(res)},err=>{        
@@ -50,7 +50,10 @@ export class HomeComponent implements OnInit {
   {
     this.book.emit(detail);
     if(localStorage.getItem("token")!=null)
+    {
+      this._data=detail;
     this._router.navigate(["/booking"]);
+    }
     else
     this._router.navigate(["/login"]);
   }
