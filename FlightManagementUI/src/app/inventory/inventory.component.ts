@@ -17,10 +17,13 @@ export class InventoryComponent implements OnInit {
   constructor(private _auth:InventoryService,private _router:Router) { }
 
   ngOnInit(): void {   
+    debugger;
       this._auth.getAllInventory().subscribe(res => {
        this.inventoryModellist=res   
       },
-        err => console.log(err));      
+        err => {this.IsError=true;
+          this.errorRes="No Inventory exists";
+          console.log(err)});      
   }
   addInventory()
   {

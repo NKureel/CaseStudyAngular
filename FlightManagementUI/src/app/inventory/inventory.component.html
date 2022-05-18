@@ -35,21 +35,21 @@
                 </thead>
                 <tbody>
                     <tr *ngIf="IsError">
-                        <td colspan="5"><h5>{{errorRes}}</h5></td>
+                        <td colspan="12"><h5>{{errorRes}}</h5></td>
                     </tr>
                     <tr *ngFor="let detail of inventoryModellist;index as i">
-                        <td><h5>{{detail.flightNumber}}</h5></td>
-                        <td><h5>{{detail.airlineNo}}</h5></td>
-                        <td><h5>{{detail.fromPlace}}</h5></td>
-                        <td><h5>{{detail.toPlace}}</h5></td>
-                        <td><h5>{{detail.startDateTime}}</h5></td>
-                        <td><h5>{{detail.endDateTime}}</h5></td>
-                        <td><h5>{{detail.scheduleDays}}</h5></td>
-                        <td><h5>{{detail.meal}}</h5></td>
-                        <td><h5>{{detail.ticketCost}}</h5></td>
-                        <td><h5>{{detail.noOfRows}}</h5></td>
-                        <td><h5>{{detail.businessClassSeat}}</h5></td>
-                        <td><h5>{{detail.nonBusinessClassSeat}}</h5></td>                       
+                        <td>{{detail.flightNumber}}</td>
+                        <td>{{detail.airlineNo}}</td>
+                        <td>{{detail.fromPlace}}</td>
+                        <td>{{detail.toPlace}} </td>
+                        <td> {{detail.startDateTime}} </td>
+                        <td> {{detail.endDateTime}} </td>
+                        <td> {{detail.scheduleDays}} </td>
+                        <td> {{detail.meal}} </td>
+                        <td> {{detail.ticketCost}} </td>
+                        <td> {{detail.noOfRows}} </td>
+                        <td> {{detail.businessClassSeat}} </td>
+                        <td> {{detail.nonBusinessClassSeat}} </td>                       
                     </tr>
                 </tbody>
             </table>
