@@ -24,7 +24,8 @@ export class LoginComponent  {
   loginUser() {    
     
     this._auth.loginUser(this.loginUserData).subscribe(res => {
-      localStorage.setItem('token', res.token)      
+      localStorage.setItem('token', res.token)  
+      localStorage.setItem('user',this.loginUserData.userName)    
       if(this.loginUserData.userName==='admin')
       {        
       localStorage.setItem('isAdmin', 'true');

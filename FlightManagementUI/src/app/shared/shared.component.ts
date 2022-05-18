@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 import { InventoryData } from "../models/inventoryModel";
 
-@Injectable()
+@Injectable({
+    providedIn:"root"
+})
 export class SharedData
 {
-      bookSearchdata=new BehaviorSubject<InventoryData>(new InventoryData());
+     private bookSearchdata=new BehaviorSubject<InventoryData>(new InventoryData());
       book=this.bookSearchdata.asObservable();
       constructor()
       {}
@@ -13,6 +15,9 @@ export class SharedData
         {
             this.bookSearchdata.next(book);
         }
+        
+       // booksearchdata:BehaviorSubject<InventoryData>;
+
     /*constructor() {                
     }
 

@@ -22,16 +22,16 @@ export class RegisterComponent {
     var result;
     this._auth.registerUser(data).subscribe(res => {
       //localStorage.setItem('token', res.token)  
-      result=alert("Register Successfully")                     
+      result=alert("Register Successfully !! Please login")                     
     },
       err => alert(err.error.message));
       var logindata={
         userName:this.registerUserData.userName,
         password:this.registerUserData.password
       }
-      this._auth.loginUser(logindata).subscribe(res => {
-        localStorage.setItem('token', res.token)                    
-      this._router.navigate(['\home'])},err=>alert(err.error.message));      
+     // this._auth.loginUser(logindata).subscribe(res => {
+       // localStorage.setItem('token', res.token)                    
+      this._router.navigate(['\login']);
   }
   
 

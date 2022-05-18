@@ -10,5 +10,7 @@ export class BookingData
     seatNo:string='';
     seatClass:string='';
     flightNumber:string='';  
-    userdetail:Array<PersonData>=new Array<PersonData>();  
+    userdetail:Array<PersonData>=new Array<PersonData>(); 
+    
+   
 }

@@ -31,27 +31,12 @@
                     <div class="col-md-4 ">
                         <div class="form-outline flex-fill">
                             <label>To Place</label>
-                            <input disabled type="date" class="form-control" placeholder="{{inventoryData.toPlace}}" />
+                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.toPlace}}" />
                         </div>
                     </div>
                 </div>
 
-
-               <!-- <div class="row">
-
-                    <div class="col-md-4 ">
-                        <div class="form-outline flex-fill">
-                            <label>End Date</label>
-                            <input  disabled type="text" class="form-control" placeholder="{{inventoryData.airlineNo}}" />
-                        </div>
-                    </div>
-                    <div class="col-md-4  ">
-                        <div class="form-outline flex-fill">
-                            <label>Start Date</label>
-                            <input disabled type="text" class="form-control" placeholder="{{inventoryData.airlineNo}}" />
-                        </div>
-                    </div>
-                </div>-->
+              
                 <div class="row">
                     <div class="col-md-4 ">
                         <div class="form-outline flex-fill">
@@ -137,6 +122,10 @@
                             </table>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-success btn-lg float-right"
+                    (click)="submit()"style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit </button>
                 </div>
             </div>
         </div>
