@@ -46,8 +46,10 @@ export class HomeComponent implements OnInit {
   
   bookFlight(index:any,detail:any)
   {
-    
+    if(localStorage.getItem("token")!=null)
     this._router.navigate(["/booking"]);
+    else
+    this._router.navigate(["/login"]);
   }
   GetAllInventory(){
     this._service.getAllInventory().subscribe(res=>this.Success(res),err=>this.Error(err));   

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.services';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.services';
 export class HeaderComponent implements OnInit {
 imageUrl='../../assets/Images/plane.png';
  admin:any='false';
-constructor(private _authService:AuthService) { }
+constructor(private _authService:AuthService,private _router:Router) { }
 
 LogOut()
 {
@@ -34,5 +35,11 @@ LoggedIn(input:boolean)
 }
   ngOnInit(): void {
   }
-
+  history()
+  {
+    if(localStorage.getItem("/token"))
+    this._router.navigate(["history"])
+    else
+    this._router.navigate(["login"])
+  }
 }
