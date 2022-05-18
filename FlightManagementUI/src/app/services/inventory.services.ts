@@ -11,11 +11,13 @@ export class InventoryService {
     constructor(private http: HttpClient, private router: Router) {
     }
 
-    getFlightByPlaces(toplace: any, fromplace: any) {
-        let httparms = new HttpParams().set("toplace", toplace);
-        httparms.set('fromplace', fromplace);
-        let options = { params: httparms };
-        return this.http.get<any>(this._searchFlightURL, options);
+    getFlightByPlaces(fromplace: any, toplace: any) {
+        /*let httparms = new HttpParams()
+        httparms.set("fromplace", toplace);
+        httparms.set('toplace', fromplace);
+        let options = { params: httparms };*/
+        var link=this._searchFlightURL+"?fromplace="+fromplace+"&toplace="+toplace+"";
+        return this.http.get<any>(link);
     }
     getAllInventory() {
         return this.http.get<any>(this._inventoryURL);

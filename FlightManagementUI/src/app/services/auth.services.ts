@@ -29,7 +29,7 @@ export class AuthService
     {
         localStorage.removeItem('token');
         localStorage.removeItem('isAdmin');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home']).then(()=>{window.location.reload()})  ;
     }
 
     getToken()

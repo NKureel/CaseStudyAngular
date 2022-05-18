@@ -4,25 +4,35 @@
          <div class="col-md-3">
             <div class="form-outline flex-fill">
                <label>From Place</label>
-               <input type="text" class="form-control" placeholder="From Place" />
+               <input type="text"  [(ngModel)]="inventoryData.fromPlace" class="form-control" placeholder="From Place" />
+              <!--<select class="select"
+              [(ngModel)]="inventoryData.fromPlace"  style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                  <option value="" selected hidden >To Place</option>
+                  <option *ngFor="let detail of inventoryModellist">{{detail.fromPlace}}</option>    
+              </select>-->
             </div>
          </div>
          <div class="col-md-3">
             <div class="form-outline flex-fill">
                <label>To Place</label>
-               <input type="text" class="form-control" placeholder="To Place"  />
+               <!--<select class="select"
+               [(ngModel)]="inventoryData.toPlace"  style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                   <option value="" selected hidden >To Place</option>
+                   <option *ngFor="let detail of inventoryModellist">{{detail.toPlace}}</option>    
+               </select>-->
+             <input type="text" [(ngModel)]="inventoryData.toPlace" class="form-control" placeholder="To Place"  />
             </div>
          </div>
          <div class="col-md-3">
             <div class="form-outline flex-fill">
                <label>Departure Date</label>
-               <input type="date" class="form-control" placeholder="Departure Date"  />
+               <input type="date" [(ngModel)]="inventoryData.startDateTime"  class="form-control" placeholder="Departure Date"  />
             </div>
          </div>
          <div class="col-md-3">
             <div class="form-outline flex-fill">
                <label>Return Date</label>
-               <input type="date" class="form-control" placeholder="Return Date"  />
+               <input type="date" class="form-control" [(ngModel)]="inventoryData.endDateTime"  placeholder="Return Date"  />
             </div>
          </div>
       </div>
@@ -34,10 +44,10 @@
             </div>
          </div>
       </div>
-      <div class="alert alert-success" role="alert" *ngIf="IsAlert">
+      <!--<div class="alert alert-success" role="alert" *ngIf="IsAlert">
          {{alerts}}
        </div>
- 
+      -->
    
       <div class="row"  *ngIf="IsSearch">
          <div class="col text-center" style="padding-top: 30px!important;">
@@ -82,9 +92,9 @@
                   <td>{{detail.ticketCost}}</td>
                   <td>
 
-                     <button type="submit"
-                        style="background-color:forestgreen; padding: auto;width: 90%;font-weight: bold;"
-                        (click)="bookFlight(i,detail)">Block</button>
+                     <button type="submit" class="btn btn-success btn-lg"
+                        style=" padding: 5px;width: 90%;"
+                        (click)="bookFlight(i,detail)">Book</button>
 
                   </td>
                </tr>

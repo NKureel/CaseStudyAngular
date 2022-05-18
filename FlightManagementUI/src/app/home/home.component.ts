@@ -1,5 +1,6 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { InventoryData } from '../models/inventoryModel';
 import { InventoryService } from '../services/inventory.services';
 
@@ -14,36 +15,39 @@ export class HomeComponent implements OnInit {
   errorRes:string='';
   IsError:boolean=false;
   IsSearch:boolean=false;
-  constructor(private _service: InventoryService) { }
+  constructor(private _service: InventoryService,private _router:Router) {
+    
+    //this._service.getAllInventory().subscribe(res=>this.Success(this.inventoryModellist=res),err=>console.log(err))
+   }
   //rowData = [];  
   ngOnInit(): void {
-
-    $(document).ready(function () {
-      (<any>$('#dtDynamicVerticalScrollExample')).DataTable({
-        "scrollY": "50vh",
-        "scrollCollapse": true,
-      });
-      $('.dataTables_length').addClass('bs-select');
-    });
+    
   }
   IsAlert:Boolean=false;
   alerts:string='';
   SearchInventoyr() {
-     
-    
-    if(this.inventoryData.fromPlace==''|| this.inventoryData.toPlace==''||this.inventoryData.startDateTime==''||this.inventoryData.endDateTime=='')
+    if(this.inventoryData.fromPlace===""|| this.inventoryData.toPlace===""||this.inventoryData.startDateTime==""||this.inventoryData.endDateTime==='')
     {
-      this.alerts="Please fill the fields";      
-      this.IsAlert=true;
+      //this.alerts="Please fill the fields";      
+      //this.IsAlert=true;
+      alert("Please fill the dettails");
       return;
     }
-    this.IsSearch=true;
-    this._service.getFlightByPlaces(this.inventoryData.fromPlace,this.inventoryData.toPlace).subscribe(res=>this.Success(res),err=>console.log(err))
+    
+  //console.log(this.inventoryModellist.filter(s=>s.toPlace==this.inventoryData.toPlace && s.fromPlace==this.inventoryData.fromPlace))
+    this._service.getFlightByPlaces(this.inventoryData.fromPlace,this.inventoryData.toPlace).subscribe(res=>{
+      this.IsSearch=true;
+      this.Success(res)},err=>{        
+      this.IsSearch=true;
+      this.Error(err);
+      })
   }
 
+  
   bookFlight(index:any,detail:any)
   {
     
+    this._router.navigate(["/booking"]);
   }
   GetAllInventory(){
     this._service.getAllInventory().subscribe(res=>this.Success(res),err=>this.Error(err));   
@@ -51,7 +55,7 @@ export class HomeComponent implements OnInit {
   Error(err:any)
   {
     this.IsError=true;
-    this.errorRes=err.error.message;
+    this.errorRes="Failed to find flights";
     
   }
   Success(res:any)
