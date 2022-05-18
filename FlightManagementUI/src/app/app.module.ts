@@ -33,7 +33,7 @@ import { HistoryComponent } from './booking/history/history.component';
     HeaderComponent,
     FooterComponent,
     InventoryComponent,
-    LoginComponent,
+    LoginComponent,    
     AirlineComponent,     
     AddAirlinesComponent,
     AddInventoryComponent,

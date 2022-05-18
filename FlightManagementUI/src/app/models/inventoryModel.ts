@@ -1,4 +1,4 @@
-export class InventoryData {
+export class InventoryData {    
     flightNumber: string = '';
     airlineNo: string = '';
     fromPlace: string = '';

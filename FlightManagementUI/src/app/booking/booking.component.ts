@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { __metadata } from 'tslib';
 import { PersonData } from '../models/personModel';
+import { SharedData } from '../shared/shared.component';
 
 @Component({
   selector: 'app-booking',
@@ -9,10 +11,14 @@ import { PersonData } from '../models/personModel';
 export class BookingComponent implements OnInit {
 
   persondataItem:PersonData=new PersonData();
+   inventoryData:any
   personlist:Array<PersonData>=new Array<PersonData>();
-  constructor() { }
+  constructor(private _data:SharedData) { 
+    
+  }
    personArray:Array<PersonData>=new Array<PersonData>();
   ngOnInit(): void {
+    this._data.bookSearchdata.subscribe(res=>{this.inventoryData=res});
   }
   AddRow()
   {

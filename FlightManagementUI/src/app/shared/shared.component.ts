@@ -5,8 +5,14 @@ import { InventoryData } from "../models/inventoryModel";
 @Injectable()
 export class SharedData
 {
-    private bookSearchdata=InventoryData;
-    
+      bookSearchdata=new BehaviorSubject<InventoryData>(new InventoryData());
+      book=this.bookSearchdata.asObservable();
+      constructor()
+      {}
+        changeName(book:any)
+        {
+            this.bookSearchdata.next(book);
+        }
     /*constructor() {                
     }
 

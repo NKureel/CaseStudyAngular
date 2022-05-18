@@ -17,7 +17,7 @@ export class InventoryComponent implements OnInit {
   constructor(private _auth:InventoryService,private _router:Router) { }
 
   ngOnInit(): void {   
-    debugger;
+    
       this._auth.getAllInventory().subscribe(res => {
        this.inventoryModellist=res   
       },

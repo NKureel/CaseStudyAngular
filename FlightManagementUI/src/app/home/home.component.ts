@@ -44,14 +44,11 @@ export class HomeComponent implements OnInit {
       })
   }
 
- 
-  @Output() book=new EventEmitter<InventoryData>();
   bookFlight(index:any,detail:any)
-  {
-    this.book.emit(detail);
+  {    
     if(localStorage.getItem("token")!=null)
     {
-      this._data=detail;
+      this._data.changeName(detail);
     this._router.navigate(["/booking"]);
     }
     else
