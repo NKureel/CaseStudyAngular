@@ -10,13 +10,13 @@
         <div class="controls">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-              checked>
-            <label class="form-check-label" for="exampleRadios1">
+             checked>
+            <label class="form-check-label"  for="exampleRadios1">
               PNR
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input"  type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
             <label class="form-check-label" for="exampleRadios2">
               EmailId
             </label>
@@ -27,16 +27,91 @@
       <div class="control-group">
         <div class="controls">
           <div class="col-12 col-md-8 col-lg-8 col-xl-6 mb-3" style="padding-left: 0px;">
-            <input type="email"  class="form-control" id="exampleFormControlInput1" placeholder="Enter detail">
+            <input type="email" #inputText class="form-control" id="exampleFormControlInput1" placeholder="Enter detail">
           </div>
         </div>
       </div>
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success">Submit</button>
+          <button class="btn btn-success" (click)=SearchDetail(inputText.value)>Submit</button>
         </div>
       </div>
     </fieldset>
   </form>
+  <div class="row" *ngIf="IsSearch">
+    <div class="table-responsive " style="padding-top: 15px;">
+      <table id="dtDynamicVerticalScrollExample"
+      *ngIf="IsSearch"  class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <thead class="bg-info">
+              <tr>              
+                  <th class="th-sm">
+                    FirstName  
+                  </th>                  
+                  <th class="th-sm">
+                    LastName  
+                  </th>
+                  <th class="th-sm">
+                    EmailId  
+                  </th>
+                  <th class="th-sm">
+                    Meal  
+                  </th>
+                  <th class="th-sm">
+                    FlightNumber  
+                  </th>
+                  <th class="th-sm">
+                    PNR
+                  </th>
+                  <th class="th-sm">
+                    StartDateTime
+                  </th>
+                  <th class="th-sm">
+                    EndDateTime
+                  </th>
+                  <th class="th-sm">
+                    ScheduleDays
+                  </th>
+                  <th class="th-sm">
+                    Action
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let detail of ticketList;index as i">
+              <td>
+                {{detail.firstName}}
+              </td>                  
+              <td>
+                {{detail.lastName}}  
+              </td>
+              <td>
+                {{detail.emailid}}  
+              </td>
+              <td>
+                {{detail.meal}}  
+              </td>
+              <td>
+                {{detail.flightNumber}}  
+              </td>
+              <td>
+                {{detail.pnr}}
+              </td>
+              <td>
+                {{detail.startDateTime}}
+              </td>
+              <td>
+                {{detail.endDateTime}}
+              </td>
+              <td>
+                {{detail.scheduleDays}}
+              </td>              
+              <td>
+                  <button type="submit"   style="background-color:forestgreen; padding: auto;width: 90%;font-weight: bold;"
+                           (click)="CancelTicket(i,detail)">Cancel</button>                  
+              </td>
+          </tbody>
+      </table>
+  </div>
+  </div>
 </div>

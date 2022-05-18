@@ -37,9 +37,12 @@ LoggedIn(input:boolean)
   }
   history()
   {
-    if(localStorage.getItem("/token"))
+    if(localStorage.getItem("user")!=="admin")
     this._router.navigate(["history"])
     else
+    {
+      alert("Please login as user");
     this._router.navigate(["login"])
+    }
   }
 }
