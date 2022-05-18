@@ -68,7 +68,7 @@
                 </div>
                 <div class="row">
                     <div class="container  table-bordered-1">
-                        <div class="row">
+                       <div class="row">
                             <div class="col-12">
                                 <button type="submit" class="btn btn-success btn-lg float-right"
                                     (click)="AddRow()"style="padding-left: 2.5rem; padding-right: 2.5rem;">Add Person</button>
@@ -94,22 +94,25 @@
                                         <th class="th-sm">
                                             <h4>Class</h4>
                                         </th>
+                                        <th class="th-sm">
+                                            Action
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let detail of pushRow;index as i">
+                                    <tr *ngFor="let detail of personArray;index as i">
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Enter Firstname" />
+                                            <input type="text" [(ngModel)]="personArray[i].firstName" class="form-control" placeholder="Enter Firstname" />
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Enter Lastname" />
+                                            <input type="text" [(ngModel)]="personArray[i].lastName" class="form-control" placeholder="Enter Lastname" />
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" placeholder="Enter Age" />
+                                            <input type="text" [(ngModel)]="personArray[i].age" class="form-control" placeholder="Enter Age" />
                                         </td>
                                         <td>
                                             <select class="select"
-                                                style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                                            [(ngModel)]="personArray[i].gender"     style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
                                                 <option value="" selected hidden>Choose Gender</option>
                                                 <option value="1">Female</option>
                                                 <option value="2">Male</option>
@@ -117,12 +120,17 @@
                                         </td>
                                         <td>
                                             <select class="select"
-                                                style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
+                                            [(ngModel)]="personArray[i].class"    style="width: 100%; padding: 2.5%;border-color: gainsboro; border-radius: 5px;">
                                                 <option value="" selected hidden>Choose Class</option>
                                                 <option value="1">Business</option>
                                                 <option value="2">NonBusiness</option>
                                             </select>
 
+                                        </td>
+                                        <td>
+                                            
+                                    <button type="submit" class="btn btn-success btn-lg float-right"
+                                    (click)="DeletRow(i)"style="padding-left: 2.5rem; padding-right: 2.5rem;">Delete </button>
                                         </td>
                                     </tr>
                                 </tbody>

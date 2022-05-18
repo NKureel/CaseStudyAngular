@@ -1,6 +1,7 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { EmitterVisitorContext } from '@angular/compiler';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { BookingComponent } from '../booking/booking.component';
 import { InventoryData } from '../models/inventoryModel';
 import { InventoryService } from '../services/inventory.services';
 
@@ -43,9 +44,11 @@ export class HomeComponent implements OnInit {
       })
   }
 
-  
+ 
+  @Output() book=new EventEmitter<InventoryData>();
   bookFlight(index:any,detail:any)
   {
+    this.book.emit(detail);
     if(localStorage.getItem("token")!=null)
     this._router.navigate(["/booking"]);
     else
@@ -65,3 +68,5 @@ export class HomeComponent implements OnInit {
     this.inventoryModellist=res;
   }
 }
+
+
