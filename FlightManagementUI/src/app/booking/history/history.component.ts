@@ -26,26 +26,30 @@ export class HistoryComponent implements OnInit {
         this._route.navigate(["\history"]).then(()=>{window.location.reload()})  
       },err=>console.log(err));
   }
+    isChecked:any=false;    
   SearchDetail(text:string)
   {
     debugger;
     if(text==="")
-    alert("Enter detail");
-    if(text.includes("PNR"))
     {
+    alert("Enter detail");
+    return;
+    }
+    if(this.isChecked=="option1")
+    {
+      
       this._service.getTicketByPNR(text).subscribe(res=>{
         this.ticketList=res;
         this.IsSearch=true;
-      },err=>console.log(err));
-      
+      },err=>alert("Invalid PNR"));
     }
-    else{
+    if(this.isChecked=="option2")
+    {      
       this._service.getAllBookingByEmailId(text).subscribe(res=>{
         this.ticketList=res
         this.IsSearch=true;
-      },err=>console.log(err));
-      
-    }
+      },err=>alert("Invalid Email"));
+    }   
    
   }
  

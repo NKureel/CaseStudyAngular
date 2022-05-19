@@ -8,15 +8,16 @@
       <div class="control-group">
         <!-- Username -->
         <div class="controls">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+          
+          <div class="form-check" >
+            <input class="form-check-input" type="radio" [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}" name="exampleRadios" id="exampleRadios1" value="option1"
              checked>
             <label class="form-check-label"  for="exampleRadios1">
               PNR
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input"  type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input"  type="radio" [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}" name="exampleRadios" id="exampleRadios2" value="option2">
             <label class="form-check-label" for="exampleRadios2">
               EmailId
             </label>
@@ -34,7 +35,7 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn btn-success" (click)=SearchDetail(inputText.value)>Submit</button>
+          <button class="btn btn-success" (click)="SearchDetail(inputText.value)">Submit</button>
         </div>
       </div>
     </fieldset>
