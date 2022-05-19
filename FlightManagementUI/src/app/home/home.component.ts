@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       alert("Please fill the dettails");
       return;
     }
-      
+    this.IsError=false;
     this._service.getFlightByPlaces(this.inventoryData.fromPlace,this.inventoryData.toPlace).subscribe(res=>{
       this.IsSearch=true;
       this.Success(res)},err=>{        
