@@ -28,16 +28,16 @@
                 </thead>
                 <tbody>
                     <tr *ngIf="IsError">
-                        <td colspan="5"><h5>{{errorRes}}</h5></td>
+                        <td colspan="5">{{errorRes}}</td>
                     </tr>
                     <tr *ngFor="let detail of airlineModellist;index as i">
-                        <td><h5>{{detail.airlineNo}}</h5></td>
-                        <td><h5>{{detail.uploadLogo}}</h5></td>
-                        <td><h5>{{detail.contactAddress}}</h5></td>
-                        <td><h5>{{detail.contactNumber}}</h5></td>
+                        <td>{{detail.airlineNo}}</td>
+                        <td>{{detail.uploadLogo}}</td>
+                        <td>{{detail.contactAddress}}</td>
+                        <td>{{detail.contactNumber}}</td>
                         <td>
                             
-                                <button type="submit"   style="background-color:forestgreen; padding: auto;width: 90%;font-weight: bold;"
+                                <button type="submit"  class="btn btn-success align-items-center" style=" padding: auto;width: 90%;"
                                      (click)="deleteAirline(i,detail)">Block</button>
                             
                         </td>

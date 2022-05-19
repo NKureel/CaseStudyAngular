@@ -22,7 +22,7 @@ export class HistoryComponent implements OnInit {
     this.ticketList.slice(index,1);
     this._service.cancelTicket(detail.pnr).subscribe(res=>
       {    
-        alert("Blocked Successfully"),
+        alert("Ticket Cancelled Successfully"),
         this._route.navigate(["\history"]).then(()=>{window.location.reload()})  
       },err=>console.log(err));
   }

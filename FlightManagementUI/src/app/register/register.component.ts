@@ -22,7 +22,8 @@ export class RegisterComponent {
     var result;
     this._auth.registerUser(data).subscribe(res => {
       //localStorage.setItem('token', res.token)  
-      result=alert("Register Successfully !! Please login")                     
+      result=alert("Register Successfully !! Please login")   
+      this._router.navigate(['\login']);                  
     },
       err => alert(err.error.message));
       var logindata={
@@ -31,7 +32,7 @@ export class RegisterComponent {
       }
      // this._auth.loginUser(logindata).subscribe(res => {
        // localStorage.setItem('token', res.token)                    
-      this._router.navigate(['\login']);
+      
   }
   
 

@@ -37,12 +37,15 @@ LoggedIn(input:boolean)
   }
   history()
   {
-    if(localStorage.getItem("user")!=="admin")
-    this._router.navigate(["history"])
-    else
+    debugger;
+    if(localStorage.getItem("user")==null)
     {
       alert("Please login as user");
-    this._router.navigate(["login"])
+    this._router.navigate(["/login"])
+    return;
     }
+    if(localStorage.getItem("user")!=="admin")    
+    this._router.navigate(["history"])
+    
   }
 }

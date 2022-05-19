@@ -29,6 +29,7 @@ export class AuthService
     {
         localStorage.removeItem('token');
         localStorage.removeItem('isAdmin');
+        localStorage.removeItem('user');
         this.router.navigate(['/home']).then(()=>{window.location.reload()})  ;
     }
 
