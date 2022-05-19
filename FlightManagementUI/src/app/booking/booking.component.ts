@@ -65,8 +65,7 @@ export class BookingComponent implements OnInit {
     //this.userbook
     var result:any;
     this.http.post("http://localhost:30414/api/v1.0/flight/booking/add", this.userbook).subscribe((res:any) => {
-    result=alert("Successfully Booked Ticked\n "+res.message)
-    if(result=="true")
+    result=alert("Successfully Booked Ticked\n "+res.message)    
     this._router.navigate(["/home"]);
     }, err => console.log(err));
     //this._service.bookFlightForUser(this.userbookarr).subscribe(res=>alert(res),err=>console.log(err));
