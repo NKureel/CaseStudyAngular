@@ -42,7 +42,14 @@ export class BookingComponent implements OnInit {
   userbookarr: any = [];
   //user: any;
   submit() {
-    debugger;
+    for(var i=0;i<this.personArray.length;i++)
+    {
+      if(this.personArray[i].age==0 ||this.personArray[i].class==''||this.personArray[i].firstName==''||this.personArray[i].lastName==''||this.personArray[i].gender)
+      {
+        alert("Please enter the details for User");
+        return;
+      }
+    }
     var name;
     if (localStorage.getItem('user') == null) {
       this.bookingdetail.emailId = 'user@gmail.com'
@@ -68,11 +75,7 @@ export class BookingComponent implements OnInit {
     result=alert("Successfully Booked Ticked\n "+res.message)    
     this._router.navigate(["/home"]);
     }, err => {
-      var errres=err.error.message;
-      if(errres==="undefined")
-      {
-        alert("Internal Error. Please do it after some time");
-      }
+      var errres=err.error.message;     
       alert(errres);
     });
     //this._service.bookFlightForUser(this.userbookarr).subscribe(res=>alert(res),err=>console.log(err));
