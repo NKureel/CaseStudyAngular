@@ -44,11 +44,11 @@ export class BookingComponent implements OnInit {
   submit() {
     for(var i=0;i<this.personArray.length;i++)
     {
-      if(this.personArray[i].age==0 ||this.personArray[i].class==''||this.personArray[i].firstName==''||this.personArray[i].lastName==''||this.personArray[i].gender)
+      /*if(this.personArray[i].age==0 ||this.personArray[i].class==''||this.personArray[i].firstName==''||this.personArray[i].lastName==''||this.personArray[i].gender)
       {
         alert("Please enter the details for User");
         return;
-      }
+      }*/
     }
     var name;
     if (localStorage.getItem('user') == null) {
